@@ -3,7 +3,7 @@
 # Introduction
 
 A simple C++17 wrapper library around the Linux epoll API.
-Provides you with an easy way of asynchronously listening for a linux file descriptor events in 4 lines of C++ code.
+Provides you with an easy way of asynchronously listening for linux file descriptor events in 4 lines of C++ code.
 
 ## Usage
 
