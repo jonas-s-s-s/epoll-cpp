@@ -25,7 +25,7 @@ Using the `addDescriptor` method we'll register a file descriptor with this Epol
 **Warning**: `addDescriptor` must always be called first. `addEventHandler` will throw an exception if it's called before the descriptor is added.
 
 ```cpp
-epoll.addDescriptor(serverSocketFd);
+epoll.addDescriptor(clientFd);
 ```
 
 ### 3) Add event callback functions
