@@ -57,9 +57,10 @@ public:
     void removeDescriptor(int monitoredFd);
 
     /**
-     * Blocks thread until event occurs.
+     * Blocks thread until event occurs, or the timeout expired
+     * @param timeout Timeout in ms. Use -1 for infinite timeout
      */
-    void waitForEvents();
+    void waitForEvents(int timeout = -1);
 
     /**
      * Will add a handler function to event of certain fd which is monitored by this epoll.
