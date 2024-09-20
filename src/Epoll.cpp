@@ -34,9 +34,9 @@ void Epoll::removeDescriptor(int monitoredFd) {
     }
 }
 
-void Epoll::waitForEvents() {
+void Epoll::waitForEvents(int timeout) {
     // Start waiting for descriptor events
-    int numOfEvents = epoll_wait(_epollFd, &_eventsVector[0], _maxEventsNum, -1);
+    int numOfEvents = epoll_wait(_epollFd, &_eventsVector[0], _maxEventsNum, timeout);
 
     for (int i = 0; i < numOfEvents; i++) {
         uint32_t events = _eventsVector[i].events;
