@@ -169,6 +169,8 @@ int main(int argc, char **argv) {
     close(serverSocketFd);
 }
 ```
+# Invoking your own events inside of the epoll event loop
+Occasionally you might want to perform some other operation on the thread where your epoll event loop is running. The [eventfd](https://man7.org/linux/man-pages/man2/eventfd.2.html) object can be used to notify the epoll. With the use of eventfd you can for example implement a [thread safe queue](https://gist.github.com/jonas-s-s-s/3c31e8b3c20b0b091485aa8f5565be80). Register the eventfd with your epoll, call `push(...)` from your secondary thread, the epoll will then get notified and you can retrieve the data by calling `pop()`.
 
 # Additional information about the epoll system call
 
@@ -184,5 +186,4 @@ https://man7.org/linux/man-pages/man2/epoll_ctl.2.html
 
 # Todo
 
-* Use enums instead of linux library preprocessor macros to make public methods more user-friendly
 * CMake external library example
